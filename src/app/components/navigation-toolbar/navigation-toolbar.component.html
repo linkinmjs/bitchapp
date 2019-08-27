@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+
+  <mat-toolbar-row>
+    <span>Bitchapp</span>
+    <span class="example-spacer"></span>
+    <mat-button-toggle-group #group="matButtonToggleGroup">
+      <mat-button-toggle value="left" aria-label="Text align left"  routerLink="/clients" routerLinkActive="active">
+        <mat-icon>assignment</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="center" aria-label="Text align center"  routerLink="/monitor" routerLinkActive="active">
+        <mat-icon>assessment</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="right" aria-label="Text align right" routerLink="/backup" routerLinkActive="active">
+        <mat-icon>backup</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="justify" disabled aria-label="Text align justify">
+        <mat-icon>build</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-toolbar-row>
+
+</mat-toolbar>
