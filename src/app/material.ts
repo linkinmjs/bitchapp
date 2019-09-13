@@ -8,6 +8,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
 
+
 @NgModule({
     imports: [MatDividerModule, MatButtonToggleModule, MatPaginatorModule, MatTableModule, MatToolbarModule, MatButtonModule, MatCheckboxModule, MatIconModule],
     exports: [MatDividerModule, MatButtonToggleModule, MatPaginatorModule, MatTableModule, MatToolbarModule, MatButtonModule, MatCheckboxModule, MatIconModule],

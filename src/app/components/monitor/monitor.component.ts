@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientService } from "./../../services/client.service";
 
 @Component({
   selector: 'app-monitor',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonitorComponent implements OnInit {
 
-  constructor() { }
+  public server = [];
+
+  constructor(private _clientService: ClientService) { }
 
   ngOnInit() {
+    this._clientService.getClients()
+    .subscribe(data => this.server = data);
   }
 
 }

@@ -1,7 +1,8 @@
 <mat-toolbar color="primary">
 
   <mat-toolbar-row>
-    <span>Bitchapp</span>
+    <button class="home" mat-flat-button color="primary" routerLink="/" routerLinkActive="active"><span>Bitchapp</span></button>
+      
     <span class="example-spacer"></span>
     <mat-button-toggle-group #group="matButtonToggleGroup">
       <mat-button-toggle value="left" aria-label="Text align left"  routerLink="/clients" routerLinkActive="active">
