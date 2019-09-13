@@ -5,6 +5,7 @@ import { MonitorComponent } from './components/monitor/monitor.component';
 import { BackupComponent } from './components/backup/backup.component';
 
 const routes: Routes = [
+  { path: '', component: ClientComponent },
   { path: 'clients', component: ClientComponent },
   { path: 'monitor', component: MonitorComponent },
   { path: 'backup', component: BackupComponent },
