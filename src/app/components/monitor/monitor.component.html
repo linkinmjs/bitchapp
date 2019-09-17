@@ -1,1 +1,39 @@
-<p>monitor works!</p>
+<!-- <mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field> -->
+
+<table mat-table [dataSource]="sites" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="instanceId">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.instanceId}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="instanceType">
+    <th mat-header-cell *matHeaderCellDef> instanceType </th>
+    <td mat-cell *matCellDef="let element"> {{element.instanceType}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> status </th>
+    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+  <ul>
+    <li *ngFor="let item of sites; let i = index">
+      {{item.instanceId}}
+      {{item.endPoint}}
+    </li>
+  </ul>

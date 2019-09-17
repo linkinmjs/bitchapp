@@ -1,0 +1,11 @@
+table {
+    width: 80% !important;
+    margin: 2rem 10rem;
+    table-layout: fixed;
+  }
+
+  mat-form-field{
+    width: 80% !important;
+    margin: 2rem 10rem 0rem 10rem;
+    table-layout: fixed; 
+  }  

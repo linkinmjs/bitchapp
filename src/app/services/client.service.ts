@@ -8,13 +8,13 @@ import { Observable } from 'rxjs';
 })
 export class ClientService {
 
-  public _url:string;
+  private _url: string;
 
   constructor(private http: HttpClient) {
-    this._url='https://bitchapp-back.herokuapp.com/clients';
+    this._url = 'https://bitchapp-back.herokuapp.com/clients';
   }
 
-  getClients(): Observable<IClient[]>{
+  getClients(): Observable<IClient[]> {
     return this.http.get<IClient[]>(this._url);
   }
 

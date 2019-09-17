@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
-import { MatPaginator } from '@angular/material/paginator';
-import {animate, state, style, transition, trigger} from '@angular/animations';
 import { IClient } from 'src/app/models/client.model';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-client',
@@ -10,8 +9,8 @@ import { IClient } from 'src/app/models/client.model';
   styleUrls: ['./client.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ]
@@ -19,20 +18,21 @@ import { IClient } from 'src/app/models/client.model';
 
 export class ClientComponent {
 
-  displayedColumns: string[] = ['id', 'name', 'ip', 'urlsitio', 'userssh', 'keyssh', 'directorypath', 'service', 'business', 'contacto', 'socialreason'];
-
   public customers = [];
 
-  constructor(private _clientService: ClientService) { 
-    
-  }
-  
+  displayedColumns: string[] = ['id', 'name', 'ip', 'urlsitio', 'userssh', 'keyssh', 'directorypath', 'service', 'business', 'contacto', 'socialreason'];
   columnsToDisplay = ['name', 'ip', 'urlsitio', 'service'];
   expandedElement: IClient | null;
+
+  constructor(private _clientService: ClientService) {
+    
+  }
+
+
 
   ngOnInit() {
     this._clientService.getClients()
       .subscribe(data => this.customers = data);
-    
+     
   }
 }
