@@ -9,3 +9,7 @@ table {
     margin: 2rem 10rem 0rem 10rem;
     table-layout: fixed; 
   }  
+
+.filter{
+  color: white;
+}

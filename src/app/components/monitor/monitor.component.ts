@@ -8,23 +8,29 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './monitor.component.html',
   styleUrls: ['./monitor.component.css']
 })
-export class MonitorComponent{
+export class MonitorComponent {
 
   public sites = [];
 
-  displayedColumns: string[] = ['instanceId','name','instanceType','status'];
+  displayedColumns: string[] = ['instanceId', 'name', 'instanceType', 'status'];
   // dataSource = new MatTableDataSource(ELEMENT_DATA);
-  dataSource = new MatTableDataSource(this.sites);
+  public dataSource = new MatTableDataSource<ISites>();
 
   constructor(private _MonitorService: MonitorService) { }
 
   ngOnInit() {
     this._MonitorService.getSites()
-      .subscribe(data => this.sites = data);
-      
+      .subscribe(res => {
+
+        /* Fuente para solucionarlo:  https://code-maze.com/angular-material-table/ */
+        this.dataSource.data = res as ISites[];
+        console.log(this.dataSource);
+      });
+
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    console.log(this.dataSource);
   }
 }
