@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MonitorService } from "../../services/monitor.service";
 import { ISites } from "../../models/sites.model";
 import { MatTableDataSource } from '@angular/material/table';
+import {PageEvent,MatPaginator,MatSort} from '@angular/material/';
+
 
 @Component({
   selector: 'app-monitor',
@@ -11,6 +13,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class MonitorComponent {
 
   public sites = [];
+  pageEvent: PageEvent;
 
   displayedColumns: string[] = ['instanceId', 'name', 'instanceType', 'status'];
   // dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -18,7 +21,11 @@ export class MonitorComponent {
 
   constructor(private _MonitorService: MonitorService) { }
 
+  @ViewChild(MatSort,{static: false}) sort: MatSort;
+  @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
+
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
     this._MonitorService.getSites()
       .subscribe(res => {
 
@@ -27,7 +34,12 @@ export class MonitorComponent {
         console.log(this.dataSource);
       });
 
+      this.dataSource.sort = this.sort;
+      
+      console.log(this.paginator);
+
   }
+
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

@@ -1,3 +1,4 @@
+<div class="mat-elevation-z8">
 <mat-form-field class="filter">
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
@@ -31,3 +32,5 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<mat-paginator #scheduledOrdersPaginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
