@@ -1,0 +1,13 @@
+#form-meli{
+    color: white;
+    margin: 2em 10em;
+}
+
+.form-meli-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-meli-container > * {
+    width: 100%;
+  }
